@@ -16,7 +16,6 @@ namespace homestay.api.Controllers
             _context = context;
         }
 
-        // GET: api/Homestays
         [HttpGet]
         public async Task<IActionResult> GetHomestays()
         {
@@ -25,7 +24,6 @@ namespace homestay.api.Controllers
             return Ok(homestays);
         }
 
-        // GET: api/Homestays/1
         [HttpGet("{id}")]
         public async Task<IActionResult> GetHomestay(int id)
         {
@@ -38,6 +36,24 @@ namespace homestay.api.Controllers
             }
 
             return Ok(homestay);
+        }
+
+        [HttpGet("search")]
+        public async Task<IActionResult> SearchHomestays(string keyword)
+        {
+            if (string.IsNullOrWhiteSpace(keyword))
+            {
+                return await GetHomestays();
+            }
+
+            var homestays = await _context.Homestays
+                .Where(x =>
+                    x.Name.Contains(keyword) ||
+                    x.Address.Contains(keyword) ||
+                    x.Description.Contains(keyword))
+                .ToListAsync();
+
+            return Ok(homestays);
         }
     }
 }

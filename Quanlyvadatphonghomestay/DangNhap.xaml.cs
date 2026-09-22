@@ -4,19 +4,22 @@ namespace Quanlyvadatphonghomestay;
 
 public partial class DangNhap : ContentPage
 {
-    private readonly AuthService _authService = new AuthService();
+    private readonly AuthService _authService = new();
 
     public DangNhap()
     {
         InitializeComponent();
+        NavigationPage.SetHasNavigationBar(this, false);
     }
 
-    // Toggle ẩn/hiện mật khẩu trong 3 giây
     private async void TogglePassword_Clicked(object sender, EventArgs e)
     {
-        PasswordEntry.IsPassword = false;
-        await Task.Delay(3000);
-        PasswordEntry.IsPassword = true;
+        PasswordEntry.IsPassword = !PasswordEntry.IsPassword;
+        if (!PasswordEntry.IsPassword)
+        {
+            await Task.Delay(3000);
+            PasswordEntry.IsPassword = true;
+        }
     }
 
     private async void LoginButton_Clicked(object sender, EventArgs e)
@@ -42,47 +45,30 @@ public partial class DangNhap : ContentPage
 
             if (result == null)
             {
-                await DisplayAlert(
-                    "Đăng nhập thất bại",
-                    "Email hoặc mật khẩu không đúng.",
-                    "OK"
-                );
+                await DisplayAlert("Đăng nhập thất bại", "Email hoặc mật khẩu không đúng.", "OK");
                 return;
             }
 
-            await DisplayAlert(
-                "Đăng nhập thành công",
-                $"Xin chào {result.FullName}!",
-                "OK"
-            );
+            await DisplayAlert("Đăng nhập thành công", $"Xin chào {result.FullName}!", "OK");
 
-            // SỬA TẠI ĐÂY: Thay đổi MainPage hoàn toàn sang TrangChu
-            if (Application.Current != null)
+            if (Application.Current?.Windows.Count > 0)
             {
-                Application.Current.MainPage = new NavigationPage(new TrangChu());
+                Application.Current.Windows[0].Page = new NavigationPage(new TrangChu());
             }
         }
         catch (Exception ex)
         {
-            await DisplayAlert(
-                "Lỗi",
-                "Không thể kết nối đến máy chủ:\n" + ex.Message,
-                "OK"
-            );
+            await DisplayAlert("Lỗi", "Không thể kết nối đến máy chủ:\n" + ex.Message, "OK");
         }
     }
 
-    // Chuyển sang trang Đăng ký
     private async void Register_Tapped(object sender, TappedEventArgs e)
     {
-        // Giả sử bạn có trang DangKy
-        // Application.Current.MainPage = new NavigationPage(new DangKy());
+        
     }
 
-    // Chuyển sang trang Quên mật khẩu
     private async void ForgotPassword_Tapped(object sender, TappedEventArgs e)
     {
-        // Giả sử bạn có trang QuenMatKhau
-        // await Navigation.PushAsync(new QuenMatKhau());
+      
     }
 }
