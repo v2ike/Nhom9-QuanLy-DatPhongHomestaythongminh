@@ -16,36 +16,29 @@ public partial class Modau : ContentPage
 
         try
         {
-            // 1. Hiệu ứng Logo: Phóng to & Fade In đồng thời
             LogoCard.FadeTo(1, 1200, Easing.CubicOut);
             LogoCard.ScaleTo(1.0, 1200, Easing.CubicOut);
 
             await Task.Delay(300, _cts.Token);
 
-            // 2. Hiệu ứng Tên & Slogan: Trượt lên & Fade In
             TextContainer.FadeTo(1, 900, Easing.CubicOut);
             TextContainer.TranslateTo(0, 0, 900, Easing.CubicOut);
 
             await Task.Delay(200, _cts.Token);
 
-            // 3. Hiệu ứng Khung Loading & Footer
             BottomContainer.FadeTo(1, 900, Easing.CubicOut);
             BottomContainer.TranslateTo(0, 0, 900, Easing.CubicOut);
 
-            // 4. Thanh Progress Bar chạy từ 0% -> 100%
             await LoadingBar.ProgressTo(1.0, 2200, Easing.CubicInOut);
 
-            // Hiệu ứng "Thở nhẹ" cho Logo
             StartBreathingAnimation();
 
             await Task.Delay(2000, _cts.Token);
 
-            // Chuyển sang trang Đăng nhập an toàn
             NavigateToLogin();
         }
         catch (TaskCanceledException)
         {
-            // Bỏ qua lỗi khi chuyển trang giữa chừng
         }
     }
 
@@ -53,7 +46,6 @@ public partial class Modau : ContentPage
     {
         base.OnDisappearing();
 
-        // Hủy các tác vụ đang chạy và Animation để giải phóng bộ nhớ
         _cts?.Cancel();
         this.AbortAnimation("LogoBreathing");
     }

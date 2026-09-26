@@ -1,15 +1,22 @@
 ﻿using homestay.api.Data;
 using homestay.api.Models;
-using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace homestay.api.Controllers
 {
+    // Class DTO nhận dữ liệu đăng nhập
+    public class LoginRequest
+    {
+        public string Email { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
+    }
+
     [ApiController]
     [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
+        private const string SuccessMessage = "Đăng nhập thành công";
         private readonly AppDbContext _context;
 
         public AuthController(AppDbContext context)
@@ -20,6 +27,11 @@ namespace homestay.api.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
+            if (request == null || string.IsNullOrEmpty(request.Email))
+            {
+                return BadRequest(new { message = "Dữ liệu đăng nhập không hợp lệ" });
+            }
+
             var user = await _context.Users
                 .FirstOrDefaultAsync(x => x.Email == request.Email);
 
@@ -41,7 +53,7 @@ namespace homestay.api.Controllers
 
             return Ok(new
             {
-                message = "Đăng nhập thành công",
+                message = SuccessMessage,
                 userId = user.Id,
                 fullName = user.FullName,
                 email = user.Email,

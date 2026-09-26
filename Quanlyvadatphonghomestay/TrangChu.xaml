@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Quanlyvadatphonghomestay"
              x:Class="Quanlyvadatphonghomestay.TrangChu"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="#BFA992">
+
     <Grid RowDefinitions="Auto,*,Auto">
 
         <!-- HEADER -->
@@ -75,7 +77,6 @@
                 Spacing="26">
 
                 <!-- SEARCH -->
-
                 <Grid ColumnDefinitions="*,52" ColumnSpacing="10">
 
                     <Border
@@ -100,7 +101,8 @@
                                 PlaceholderColor="#8A7A70"
                                 TextColor="#3E3028"
                                 FontSize="13"
-                                BackgroundColor="Transparent"/>
+                                BackgroundColor="Transparent"
+                                Completed="SearchEntry_Completed"/>
                         </Grid>
 
                     </Border>
@@ -122,8 +124,7 @@
                 </Grid>
 
 
-                <!-- LOCATION -->
-
+                <!-- LOCATION (Chỉ Binding ImageUrl) -->
                 <VerticalStackLayout Spacing="10">
 
                     <Grid ColumnDefinitions="*,Auto">
@@ -152,7 +153,7 @@
 
                     <CollectionView
                         ItemsSource="{Binding Locations}"
-                        HeightRequest="170"
+                        HeightRequest="120"
                         SelectionMode="None">
 
                         <CollectionView.ItemsLayout>
@@ -162,46 +163,21 @@
                         </CollectionView.ItemsLayout>
 
                         <CollectionView.ItemTemplate>
-
                             <DataTemplate>
+                                <Border
+                                    WidthRequest="120"
+                                    HeightRequest="120"
+                                    Stroke="#5D4037"
+                                    StrokeThickness="1.5"
+                                    StrokeShape="RoundRectangle 16">
 
-                                <Grid
-                                    WidthRequest="128"
-                                    HeightRequest="160">
-
-                                    <Border
-                                        Stroke="#8B6F47"
-                                        StrokeThickness="1"
-                                        StrokeShape="RoundRectangle 16">
-
-                                        <Image
-                                            Source="{Binding ImageUrl}"
-                                            Aspect="AspectFill"/>
-                                    </Border>
-
-                                    <Grid
-                                        BackgroundColor="#00000000"
-                                        VerticalOptions="End">
-
-                                        <BoxView
-                                            HeightRequest="65"
-                                            VerticalOptions="End"
-                                            Opacity="0.5"
-                                            Color="Black"/>
-
-                                        <Label
-                                            Text="{Binding Name}"
-                                            TextColor="White"
-                                            FontFamily="OpenSans-Semibold"
-                                            FontSize="15"
-                                            Margin="12,0,0,10"
-                                            VerticalOptions="End"/>
-                                    </Grid>
-
-                                </Grid>
-
+                                    <Image
+                                        Source="{Binding ImageUrl}"
+                                        Aspect="AspectFill"
+                                        HorizontalOptions="Fill"
+                                        VerticalOptions="Fill"/>
+                                </Border>
                             </DataTemplate>
-
                         </CollectionView.ItemTemplate>
 
                     </CollectionView>
@@ -209,8 +185,7 @@
                 </VerticalStackLayout>
 
 
-                <!-- FEATURED -->
-
+                <!-- FEATURED HOMESTAYS -->
                 <VerticalStackLayout Spacing="10">
 
                     <Grid ColumnDefinitions="*,Auto">
@@ -238,9 +213,10 @@
                     </Grid>
 
                     <CollectionView
-                        ItemsSource="{Binding FeaturedHomestays}"
+                        ItemsSource="{Binding Homestays}"
                         HeightRequest="335"
-                        SelectionMode="None">
+                        SelectionMode="Single"
+                        SelectionChanged="Homestay_SelectionChanged">
 
                         <CollectionView.ItemsLayout>
 
@@ -375,124 +351,12 @@
 
                 </VerticalStackLayout>
 
-
-                <!-- RECOMMENDED -->
-
-                <VerticalStackLayout Spacing="10">
-
-                    <Grid ColumnDefinitions="*,Auto">
-
-                        <VerticalStackLayout>
-
-                            <Label
-                                Text="Gợi ý cho bạn"
-                                FontFamily="OpenSans-Semibold"
-                                FontSize="18"
-                                TextColor="#3E2723"/>
-
-                            <Label
-                                Text="Lựa chọn được yêu thích nhất"
-                                FontSize="11"
-                                TextColor="#685B4F"/>
-                        </VerticalStackLayout>
-
-                        <Label
-                            Grid.Column="1"
-                            Text="Tất cả"
-                            TextColor="#8B6F47"
-                            FontSize="11"
-                            VerticalOptions="End"/>
-                    </Grid>
-
-                    <CollectionView
-                        ItemsSource="{Binding RecommendedHomestays}"
-                        SelectionMode="None">
-
-                        <CollectionView.ItemTemplate>
-
-                            <DataTemplate>
-
-                                <Border
-                                    Margin="0,0,0,8"
-                                    Padding="10"
-                                    BackgroundColor="#FAF5EE"
-                                    Stroke="#5D4037"
-                                    StrokeThickness="1.5"
-                                    StrokeShape="RoundRectangle 16">
-
-                                    <Grid
-                                        ColumnDefinitions="96,*"
-                                        ColumnSpacing="12">
-
-                                        <Border
-                                            HeightRequest="96"
-                                            StrokeThickness="0"
-                                            StrokeShape="RoundRectangle 12">
-
-                                            <Image
-                                                Source="{Binding ImageUrl}"
-                                                Aspect="AspectFill"/>
-                                        </Border>
-
-                                        <VerticalStackLayout
-                                            Grid.Column="1"
-                                            Spacing="5">
-
-                                            <Grid ColumnDefinitions="*,Auto">
-
-                                                <Label
-                                                    Text="{Binding Name}"
-                                                    FontFamily="OpenSans-Semibold"
-                                                    FontSize="15"
-                                                    TextColor="#3E2723"
-                                                    LineBreakMode="TailTruncation"/>
-
-                                                <Label
-                                                    Grid.Column="1"
-                                                    Text="{Binding Rating, StringFormat='★ {0}'}"
-                                                    FontSize="11"
-                                                    TextColor="#B27A20"/>
-                                            </Grid>
-
-                                            <Label
-                                                Text="{Binding Location}"
-                                                FontSize="11"
-                                                TextColor="#685B4F"/>
-
-                                            <Label
-                                                Text="{Binding Tag}"
-                                                FontSize="10"
-                                                TextColor="#8A7A70"
-                                                BackgroundColor="#F1E7DC"/>
-
-                                            <Label
-                                                Text="{Binding Price, StringFormat='{}{0:N0}₫ / đêm'}"
-                                                FontFamily="OpenSans-Semibold"
-                                                FontSize="14"
-                                                TextColor="#3E2723"
-                                                HorizontalOptions="End"/>
-
-                                        </VerticalStackLayout>
-
-                                    </Grid>
-
-                                </Border>
-
-                            </DataTemplate>
-
-                        </CollectionView.ItemTemplate>
-
-                    </CollectionView>
-
-                </VerticalStackLayout>
-
             </VerticalStackLayout>
 
         </ScrollView>
 
 
         <!-- BOTTOM NAV -->
-
         <Border
             Grid.Row="2"
             BackgroundColor="#D6C4B0"
@@ -576,5 +440,5 @@
         </Border>
 
     </Grid>
-    
+
 </ContentPage>

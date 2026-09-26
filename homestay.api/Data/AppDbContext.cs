@@ -24,5 +24,6 @@ namespace homestay.api.Data
         public DbSet<Review> Reviews { get; set; }
 
         public DbSet<Favorite> Favorites { get; set; }
+        public DbSet<Location> locations { get; set; }
     }
 }
