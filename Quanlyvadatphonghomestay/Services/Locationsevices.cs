@@ -15,7 +15,7 @@ namespace Quanlyvadatphonghomestay.Services
             };
         }
 
-        public async Task<List<Location>> GetLocationsAsync()
+        public async Task<List<Locations>> GetLocationsAsync()
         {
             try
             {
@@ -23,22 +23,27 @@ namespace Quanlyvadatphonghomestay.Services
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    return new List<Location>();
+                    var error = await response.Content.ReadAsStringAsync();
+
+                    throw new Exception(
+                        $"API lỗi: {(int)response.StatusCode}\n{error}"
+                    );
+                    return new List<Locations>();
                 }
 
                 var json = await response.Content.ReadAsStringAsync();
 
-                return JsonSerializer.Deserialize<List<Location>>(
+                return JsonSerializer.Deserialize<List<Locations>>(
                     json,
                     new JsonSerializerOptions
                     {
                         PropertyNameCaseInsensitive = true
-                    }) ?? new List<Location>();
+                    }) ?? new List<Locations>();
             }
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine($"Lỗi gọi API Locations: {ex.Message}");
-                return new List<Location>();
+                return new List<Locations>();
             }
         }
     }

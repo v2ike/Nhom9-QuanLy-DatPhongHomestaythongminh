@@ -2,8 +2,11 @@
 using homestay.api.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+
 namespace homestay.api.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class LocationsController : ControllerBase
     {
         private readonly AppDbContext _context;
@@ -20,16 +23,17 @@ namespace homestay.api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Location>> GetLocation(string id)
+        public async Task<ActionResult<Location>> GetLocation(int id)
         {
             var location = await _context.locations
-                .FirstOrDefaultAsync(x => x.ImageUrl == id);
+                .FirstOrDefaultAsync(x => x.Id == id);
 
             if (location == null)
+            {
                 return NotFound();
+            }
 
             return location;
         }
     }
 }
-

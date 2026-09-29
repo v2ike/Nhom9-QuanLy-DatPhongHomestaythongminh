@@ -4,14 +4,14 @@
              xmlns:local="clr-namespace:Quanlyvadatphonghomestay"
              x:Class="Quanlyvadatphonghomestay.TrangChu"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="#BFA992">
+             BackgroundColor="#D6C4B0">
 
     <Grid RowDefinitions="Auto,*,Auto">
 
         <!-- HEADER -->
         <Border
             Grid.Row="0"
-            BackgroundColor="#D6C4B0"
+            BackgroundColor="#BFA992"
             Stroke="#52361E"
             StrokeThickness="1.5"
             Padding="18,12">
@@ -139,7 +139,7 @@
 
                             <Label
                                 Text="Những điểm đến thư giãn tuyệt vời"
-                                FontSize="11"
+                                FontSize="15"
                                 TextColor="#685B4F"/>
                         </VerticalStackLayout>
 
@@ -153,29 +153,35 @@
 
                     <CollectionView
                         ItemsSource="{Binding Locations}"
-                        HeightRequest="120"
-                        SelectionMode="None">
-
+                        HeightRequest="200"
+                        SelectionMode="None"
+                        HorizontalOptions="Fill"
+                   >
                         <CollectionView.ItemsLayout>
                             <LinearItemsLayout
                                 Orientation="Horizontal"
-                                ItemSpacing="12"/>
+                                ItemSpacing="15"/>
                         </CollectionView.ItemsLayout>
 
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Border
-                                    WidthRequest="120"
-                                    HeightRequest="120"
-                                    Stroke="#5D4037"
+                                    WidthRequest="150"
+                                    HeightRequest="190"
+                                    Padding="0"
+                                    Stroke="#D6C4B0"
                                     StrokeThickness="1.5"
-                                    StrokeShape="RoundRectangle 16">
+                                    StrokeShape="RoundRectangle 16"
+                                    >
 
                                     <Image
                                         Source="{Binding ImageUrl}"
                                         Aspect="AspectFill"
                                         HorizontalOptions="Fill"
-                                        VerticalOptions="Fill"/>
+                                        VerticalOptions="Fill"
+                                        
+                                     >
+</Image>
                                 </Border>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
@@ -359,7 +365,7 @@
         <!-- BOTTOM NAV -->
         <Border
             Grid.Row="2"
-            BackgroundColor="#D6C4B0"
+            BackgroundColor="#BFA992"
             Stroke="#52361E"
             StrokeThickness="1.5"
             Padding="10,8,10,18"

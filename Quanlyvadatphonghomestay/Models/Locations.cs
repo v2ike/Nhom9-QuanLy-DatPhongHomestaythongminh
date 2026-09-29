@@ -28,7 +28,7 @@ namespace Quanlyvadatphonghomestay.Models
                 if (string.IsNullOrEmpty(ImageUrl))
                     return string.Empty;
 
-                // Nếu đã là link http/https thì giữ nguyên, nếu không thì nối domain API
+               
                 if (ImageUrl.StartsWith("http://") || ImageUrl.StartsWith("https://"))
                     return ImageUrl;
 

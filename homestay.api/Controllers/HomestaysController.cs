@@ -17,7 +17,7 @@ namespace homestay.api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetHomestays()
+        public async Task<ActionResult<IEnumerable<Homestay>>> GetHomestays()
         {
             var homestays = await _context.Homestays.ToListAsync();
 
@@ -43,17 +43,19 @@ namespace homestay.api.Controllers
         {
             if (string.IsNullOrWhiteSpace(keyword))
             {
-                return await GetHomestays();
+                var homestays = await _context.Homestays.ToListAsync();
+
+                return Ok(homestays);
             }
 
-            var homestays = await _context.Homestays
+            var result = await _context.Homestays
                 .Where(x =>
                     x.Name.Contains(keyword) ||
                     x.Address.Contains(keyword) ||
                     x.Description.Contains(keyword))
                 .ToListAsync();
 
-            return Ok(homestays);
+            return Ok(result);
         }
     }
 }

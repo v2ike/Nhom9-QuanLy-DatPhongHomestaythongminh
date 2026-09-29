@@ -10,7 +10,7 @@ namespace Quanlyvadatphonghomestay
     {
         public ObservableCollection<Homestay> Homestays { get; set; } = new();
 
-        public ObservableCollection<Location> Locations { get; set; } = new();
+        public ObservableCollection<Locations> Locations { get; set; } = new ObservableCollection<Locations>();
 
         private readonly HomestayService _homestayService;
         private readonly Locationsevices _locationsevices;
@@ -61,7 +61,28 @@ namespace Quanlyvadatphonghomestay
             }
         }
 
-        private async Task LoadLocations() { try { var data = await _locationsevices.GetLocationsAsync(); Locations.Clear(); if (data != null) { foreach (var location in data) { Locations.Add(location); } } } catch (Exception ex) { await DisplayAlert("Lỗi Location", ex.Message, "OK"); } }
+        private async Task LoadLocations() { 
+            try 
+            { var data = await _locationsevices.GetLocationsAsync();
+                await DisplayAlert(
+            "Kiểm tra",
+            $"Số location nhận được: {data?.Count ?? 0}",
+            "OK"
+        );
+                Locations.Clear(); 
+                if (data != null) 
+                { 
+                    foreach (Quanlyvadatphonghomestay.Models.Locations locatio in data) 
+                    { 
+                        Locations.Add(locatio); 
+                    } 
+                } 
+            } 
+            catch (Exception ex) 
+            { 
+                await DisplayAlert("Lỗi Location", ex.Message, "OK"); 
+            } 
+        }
 
         private async void SearchEntry_Completed(
             object sender,
