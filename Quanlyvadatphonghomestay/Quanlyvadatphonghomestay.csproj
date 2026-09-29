@@ -72,7 +72,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="ChiTietHomestay.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Components\HomestayCard.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Components\SuggestionCard.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="DangKy.xaml">
@@ -99,6 +105,10 @@
 	  <MauiXaml Update="XemTimkiem.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="database\" />
 	</ItemGroup>
 
 </Project>
