@@ -145,10 +145,11 @@ namespace Quanlyvadatphonghomestay
             );
         }
 
-        private async Task chuyentimkiem(object sender, TappedEventArgs e)
-        {
-            await Navigation.PushAsync(new XemTimkiem());
         
+
+        private void chuyentimkiem(object sender, TappedEventArgs e)
+        {
+
         }
     }
 }

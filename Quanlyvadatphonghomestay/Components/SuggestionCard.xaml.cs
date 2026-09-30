@@ -16,4 +16,9 @@ public partial class SuggestionCard : ContentView
 			await Navigation.PushAsync(new ChiTietHomestay());
 		}
     }
+
+    private void SuggestionCard_Tapped(object sender, TappedEventArgs e)
+    {
+
+    }
 }
