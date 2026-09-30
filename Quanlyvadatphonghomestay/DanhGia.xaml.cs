@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 using Microsoft.Maui.Controls;
 using System.Diagnostics.Metrics;
 
@@ -160,4 +161,14 @@ public partial class DanhGia : ContentPage
         // Thực hiện logic chuyển trang về trang chủ hoặc đóng trang hiện tại
         // Navigation.PopAsync();
     }
+=======
+namespace Quanlyvadatphonghomestay;
+
+public partial class DanhGia : ContentPage
+{
+	public DanhGia()
+	{
+		InitializeComponent();
+	}
+>>>>>>> 726fc91e1a92d2ba766659457a8a3be28a60e6e8
 }
