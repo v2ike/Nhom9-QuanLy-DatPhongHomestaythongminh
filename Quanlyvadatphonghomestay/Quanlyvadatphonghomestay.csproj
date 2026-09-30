@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+=======
+<Project Sdk="Microsoft.NET.Sdk">
+>>>>>>> e14679408b0c635b74f8737b80017ff0a103a869
 
 	<PropertyGroup>
 		<TargetFrameworks>net10.0-android</TargetFrameworks>
@@ -72,6 +76,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+<<<<<<< HEAD
 	  <MauiXaml Update="ChiTietHomestay.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -81,6 +86,11 @@
 	  <MauiXaml Update="Components\SuggestionCard.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+=======
+	  <MauiXaml Update="Components\HomestayCard.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+>>>>>>> e14679408b0c635b74f8737b80017ff0a103a869
 	  <MauiXaml Update="DangKy.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

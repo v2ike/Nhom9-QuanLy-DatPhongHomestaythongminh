@@ -11,7 +11,11 @@ namespace Quanlyvadatphonghomestay
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
+<<<<<<< HEAD
             return new Window(new Modau());
+=======
+            return new Window(new ThongTinCaNhan());
+>>>>>>> e14679408b0c635b74f8737b80017ff0a103a869
         }
     }
 }

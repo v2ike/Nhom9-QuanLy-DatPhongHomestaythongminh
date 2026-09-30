@@ -144,6 +144,7 @@ namespace Quanlyvadatphonghomestay
                 "OK"
             );
         }
+<<<<<<< HEAD
 
         
 
@@ -151,5 +152,7 @@ namespace Quanlyvadatphonghomestay
         {
 
         }
+=======
+>>>>>>> e14679408b0c635b74f8737b80017ff0a103a869
     }
 }

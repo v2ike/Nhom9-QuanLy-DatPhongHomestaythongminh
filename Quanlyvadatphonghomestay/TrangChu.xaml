@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
+<<<<<<< HEAD
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Quanlyvadatphonghomestay"
              xmlns:components="clr-namespace:Quanlyvadatphonghomestay.Components"
+=======
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Quanlyvadatphonghomestay"
+>>>>>>> e14679408b0c635b74f8737b80017ff0a103a869
              x:Class="Quanlyvadatphonghomestay.TrangChu"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="#D6C4B0">
 
     <Grid RowDefinitions="Auto,*,Auto">
 
+<<<<<<< HEAD
         <!-- ================= HEADER ================= -->
 
         <Border Grid.Row="0"
@@ -17,11 +24,21 @@
                 Stroke="#52361E"
                 StrokeThickness="1.5"
                 Padding="18,12">
+=======
+        <!-- HEADER -->
+        <Border
+            Grid.Row="0"
+            BackgroundColor="#BFA992"
+            Stroke="#52361E"
+            StrokeThickness="1.5"
+            Padding="18,12">
+>>>>>>> e14679408b0c635b74f8737b80017ff0a103a869
 
             <Grid ColumnDefinitions="*,Auto">
 
                 <HorizontalStackLayout Spacing="12">
 
+<<<<<<< HEAD
                     <Border WidthRequest="46"
                             HeightRequest="46"
                             Stroke="White"
@@ -46,10 +63,38 @@
                                FontSize="11"
                                TextColor="#5D4037"/>
 
+=======
+                    <Border
+                        WidthRequest="46"
+                        HeightRequest="46"
+                        Stroke="White"
+                        StrokeThickness="2"
+                        StrokeShape="RoundRectangle 23">
+
+                        <Image
+                            Source="avatar1.png"
+                            Aspect="AspectFill"/>
+                    </Border>
+
+                    <VerticalStackLayout VerticalOptions="Center">
+
+                        <Label
+                            x:Name="HelloLabel"
+                            Text="Xin chào 👋"
+                            FontFamily="OpenSans-Semibold"
+                            FontSize="18"
+                            TextColor="#3E2723"/>
+
+                        <Label
+                            Text="Bạn muốn nghỉ ngơi ở đâu hôm nay?"
+                            FontSize="11"
+                            TextColor="#5D4037"/>
+>>>>>>> e14679408b0c635b74f8737b80017ff0a103a869
                     </VerticalStackLayout>
 
                 </HorizontalStackLayout>
 
+<<<<<<< HEAD
 
                 <Border Grid.Column="1"
                         WidthRequest="44"
@@ -106,10 +151,67 @@
                                    BackgroundColor="Transparent"
                                    Completed="SearchEntry_Completed"/>
 
+=======
+                <Border
+                    Grid.Column="1"
+                    WidthRequest="44"
+                    HeightRequest="44"
+                    BackgroundColor="#FDF9F4"
+                    Stroke="#8B6F47"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 22">
+
+                    <Label
+                        Text="🔔"
+                        FontSize="20"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"/>
+                </Border>
+
+            </Grid>
+        </Border>
+
+
+        <!-- CONTENT -->
+        <ScrollView Grid.Row="1">
+
+            <VerticalStackLayout
+                Padding="20,18,20,30"
+                Spacing="26">
+
+                <!-- SEARCH -->
+                <Grid ColumnDefinitions="*,52" ColumnSpacing="10">
+
+                    <Border
+                        BackgroundColor="#FDFAF6"
+                        Stroke="#8B6F47"
+                        StrokeThickness="1.5"
+                        StrokeShape="RoundRectangle 16">
+
+                        <Grid ColumnDefinitions="40,*">
+
+                            <Label
+                                Text="⌕"
+                                FontSize="27"
+                                TextColor="#8B6F47"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"/>
+
+                            <Entry
+                                x:Name="SearchEntry"    
+                                Grid.Column="1"
+                                Placeholder="Tìm kiếm Homestay, địa điểm..."
+                                PlaceholderColor="#8A7A70"
+                                TextColor="#3E3028"
+                                FontSize="13"
+                                BackgroundColor="Transparent"
+                                Completed="SearchEntry_Completed"/>
+>>>>>>> e14679408b0c635b74f8737b80017ff0a103a869
                         </Grid>
 
                     </Border>
 
+<<<<<<< HEAD
 
                     <Border Grid.Column="1"
                             BackgroundColor="#3E2723"
@@ -127,17 +229,36 @@
                                HorizontalOptions="Center"
                                VerticalOptions="Center"/>
 
+=======
+                    <Border
+                        Grid.Column="1"
+                        BackgroundColor="#3E2723"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 16">
+
+                        <Label
+                            Text="☷"
+                            TextColor="White"
+                            FontSize="23"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"/>
+>>>>>>> e14679408b0c635b74f8737b80017ff0a103a869
                     </Border>
 
                 </Grid>
 
 
+<<<<<<< HEAD
                 <!-- ================= LOCATION ================= -->
 
+=======
+                <!-- LOCATION (Chỉ Binding ImageUrl) -->
+>>>>>>> e14679408b0c635b74f8737b80017ff0a103a869
                 <VerticalStackLayout Spacing="10">
 
                     <Grid ColumnDefinitions="*,Auto">
 
+<<<<<<< HEAD
                         <VerticalStackLayout Spacing="1">
 
                             <Label Text="Khám phá theo địa điểm"
@@ -213,6 +334,63 @@
 
                             </DataTemplate>
 
+=======
+                        <VerticalStackLayout>
+
+                            <Label
+                                Text="Khám phá theo địa điểm"
+                                FontFamily="OpenSans-Semibold"
+                                FontSize="18"
+                                TextColor="#3E2723"/>
+
+                            <Label
+                                Text="Những điểm đến thư giãn tuyệt vời"
+                                FontSize="15"
+                                TextColor="#685B4F"/>
+                        </VerticalStackLayout>
+
+                        <Label
+                            Grid.Column="1"
+                            Text="Xem tất cả"
+                            TextColor="#8B6F47"
+                            FontSize="11"
+                            VerticalOptions="End"/>
+                    </Grid>
+
+                    <CollectionView
+                        ItemsSource="{Binding Locations}"
+                        HeightRequest="200"
+                        SelectionMode="None"
+                        HorizontalOptions="Fill"
+                   >
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout
+                                Orientation="Horizontal"
+                                ItemSpacing="15"/>
+                        </CollectionView.ItemsLayout>
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border
+                                    WidthRequest="150"
+                                    HeightRequest="190"
+                                    Padding="0"
+                                    Stroke="#D6C4B0"
+                                    StrokeThickness="1.5"
+                                    StrokeShape="RoundRectangle 16"
+                                    >
+
+                                    <Image
+                                        Source="{Binding ImageUrl}"
+                                        Aspect="AspectFill"
+                                        HorizontalOptions="Fill"
+                                        VerticalOptions="Fill"
+                                        
+                                     >
+</Image>
+                                </Border>
+                            </DataTemplate>
+>>>>>>> e14679408b0c635b74f8737b80017ff0a103a869
                         </CollectionView.ItemTemplate>
 
                     </CollectionView>
@@ -220,12 +398,17 @@
                 </VerticalStackLayout>
 
 
+<<<<<<< HEAD
                 <!-- ================= FEATURED HOMESTAYS ================= -->
 
+=======
+                <!-- FEATURED HOMESTAYS -->
+>>>>>>> e14679408b0c635b74f8737b80017ff0a103a869
                 <VerticalStackLayout Spacing="10">
 
                     <Grid ColumnDefinitions="*,Auto">
 
+<<<<<<< HEAD
                         <VerticalStackLayout Spacing="1">
 
                             <Label Text="Homestay nổi bật"
@@ -263,10 +446,49 @@
                         </CollectionView.ItemsLayout>
 
 
+=======
+                        <VerticalStackLayout>
+
+                            <Label
+                                Text="Homestay nổi bật"
+                                FontFamily="OpenSans-Semibold"
+                                FontSize="18"
+                                TextColor="#3E2723"/>
+
+                            <Label
+                                Text="Trải nghiệm nghỉ dưỡng đẳng cấp"
+                                FontSize="15"
+                                TextColor="#685B4F"/>
+                        </VerticalStackLayout>
+
+                        <Label
+                            Grid.Column="1"
+                            Text="Xem thêm"
+                            TextColor="#8B6F47"
+                            FontSize="15"
+                            VerticalOptions="End"/>
+                    </Grid>
+
+                    <CollectionView
+                        ItemsSource="{Binding Homestays}"
+                        HeightRequest="335"
+                        SelectionMode="Single"
+                        SelectionChanged="Homestay_SelectionChanged">
+
+                        <CollectionView.ItemsLayout>
+
+                            <LinearItemsLayout
+                                Orientation="Horizontal"
+                                ItemSpacing="16"/>
+
+                        </CollectionView.ItemsLayout>
+
+>>>>>>> e14679408b0c635b74f8737b80017ff0a103a869
                         <CollectionView.ItemTemplate>
 
                             <DataTemplate>
 
+<<<<<<< HEAD
                                 <components:HomestayCard/>
 
                             </DataTemplate>
@@ -449,12 +671,122 @@
                                                        FontAttributes="Bold"
                                                        TextColor="#8B6F47"
                                                        VerticalOptions="End"/>
+=======
+                                <Border
+                                    WidthRequest="290"
+                                    BackgroundColor="#FAF5EE"
+                                    Stroke="#5D4037"
+                                    StrokeThickness="1.5"
+                                    StrokeShape="RoundRectangle 18">
+
+                                    <VerticalStackLayout>
+
+                                        <Grid HeightRequest="185">
+
+                                            <Image
+                                                Source="{Binding ImageUrl}"
+                                                Aspect="AspectFill"/>
+
+                                            <Border
+                                                HorizontalOptions="End"
+                                                VerticalOptions="Start"
+                                                Margin="12"
+                                                WidthRequest="38"
+                                                HeightRequest="38"
+                                                BackgroundColor="#FFFFFFDD"
+                                                StrokeThickness="0"
+                                                StrokeShape="RoundRectangle 19">
+
+                                                <Label
+                                                    Text="♡"
+                                                    FontSize="24"
+                                                    TextColor="#B85C5C"
+                                                    HorizontalOptions="Center"
+                                                    VerticalOptions="Center"/>
+                                            </Border>
+
+                                            <Border
+                                                HorizontalOptions="Start"
+                                                VerticalOptions="End"
+                                                Margin="12"
+                                                Padding="9,4"
+                                                BackgroundColor="#FFFFFFDD"
+                                                StrokeThickness="0"
+                                                StrokeShape="RoundRectangle 12">
+
+                                                <Label
+                                                    Text="{Binding Tag}"
+                                                    FontSize="10"
+                                                    TextColor="#3E3028"/>
+                                            </Border>
+
+                                        </Grid>
+
+                                        <VerticalStackLayout
+                                            Padding="14"
+                                            Spacing="7">
+
+                                            <Grid ColumnDefinitions="*,Auto">
+
+                                                <Label
+                                                    Text="{Binding Name}"
+                                                    FontFamily="OpenSans-Semibold"
+                                                    FontSize="16"
+                                                    TextColor="#3E2723"
+                                                    LineBreakMode="TailTruncation"/>
+
+                                                <HorizontalStackLayout
+                                                    Grid.Column="1"
+                                                    Spacing="3">
+
+                                                    <Label
+                                                        Text="★"
+                                                        TextColor="#B27A20"/>
+
+                                                    <Label
+                                                        Text="{Binding Rating}"
+                                                        FontSize="11"
+                                                        FontAttributes="Bold"
+                                                        TextColor="#3E3028"/>
+
+                                                </HorizontalStackLayout>
+
+                                            </Grid>
+
+                                            <Label
+                                                Text="{Binding Location}"
+                                                FontSize="11"
+                                                TextColor="#685B4F"/>
+
+                                            <BoxView
+                                                HeightRequest="1"
+                                                Color="#E6D9CC"/>
+
+                                            <Grid ColumnDefinitions="*,Auto">
+
+                                                <Label
+                                                    Text="{Binding Price, StringFormat='{}{0:N0}₫ / đêm'}"
+                                                    FontFamily="OpenSans-Semibold"
+                                                    FontSize="14"
+                                                    TextColor="#3E2728"/>
+
+                                                <Label
+                                                    Grid.Column="1"
+                                                    Text="Đặt ngay →"
+                                                    FontSize="11"
+                                                    TextColor="#8B6F47"
+                                                    FontAttributes="Bold"/>
+>>>>>>> e14679408b0c635b74f8737b80017ff0a103a869
 
                                             </Grid>
 
                                         </VerticalStackLayout>
 
+<<<<<<< HEAD
                                     </Grid>
+=======
+                                    </VerticalStackLayout>
+>>>>>>> e14679408b0c635b74f8737b80017ff0a103a869
 
                                 </Border>
 
@@ -471,6 +803,7 @@
         </ScrollView>
 
 
+<<<<<<< HEAD
         <!-- ================= BOTTOM NAVIGATION ================= -->
 
         <Border Grid.Row="2"
@@ -556,6 +889,85 @@
                            TextColor="#685B4F"
                            HorizontalOptions="Center"/>
 
+=======
+        <!-- BOTTOM NAV -->
+        <Border
+            Grid.Row="2"
+            BackgroundColor="#BFA992"
+            Stroke="#52361E"
+            StrokeThickness="1.5"
+            Padding="10,8,10,18"
+            StrokeShape="RoundRectangle 22,22,0,0">
+
+            <Grid ColumnDefinitions="*,*,*,*">
+
+                <VerticalStackLayout
+                    Spacing="2"
+                    HorizontalOptions="Center">
+
+                    <Label
+                        Text="⌂"
+                        FontSize="23"
+                        TextColor="#3E2723"
+                        HorizontalOptions="Center"/>
+
+                    <Label
+                        Text="Trang chủ"
+                        FontSize="10"
+                        FontAttributes="Bold"
+                        TextColor="#3E2723"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout
+                    Grid.Column="1"
+                    Spacing="2"
+                    HorizontalOptions="Center">
+
+                    <Label
+                        Text="⌕"
+                        FontSize="23"
+                        TextColor="#685B4F"
+                        HorizontalOptions="Center"/>
+
+                    <Label
+                        Text="Tìm kiếm"
+                        FontSize="10"
+                        TextColor="#685B4F"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout
+                    Grid.Column="2"
+                    Spacing="2"
+                    HorizontalOptions="Center">
+
+                    <Label
+                        Text="□"
+                        FontSize="22"
+                        TextColor="#685B4F"
+                        HorizontalOptions="Center"/>
+
+                    <Label
+                        Text="Đặt phòng"
+                        FontSize="10"
+                        TextColor="#685B4F"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout
+                    Grid.Column="3"
+                    Spacing="2"
+                    HorizontalOptions="Center">
+
+                    <Label
+                        Text="♙"
+                        FontSize="23"
+                        TextColor="#685B4F"
+                        HorizontalOptions="Center"/>
+
+                    <Label
+                        Text="Cá nhân"
+                        FontSize="10"
+                        TextColor="#685B4F"/>
+>>>>>>> e14679408b0c635b74f8737b80017ff0a103a869
                 </VerticalStackLayout>
 
             </Grid>
