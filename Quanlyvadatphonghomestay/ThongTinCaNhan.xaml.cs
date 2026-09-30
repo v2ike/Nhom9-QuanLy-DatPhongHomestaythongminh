@@ -2,14 +2,11 @@ namespace Quanlyvadatphonghomestay;
 
 public partial class ThongTinCaNhan : ContentPage
 {
-	public ThongTinCaNhan()
-	{
-		InitializeComponent();
-	}
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
+    public ThongTinCaNhan()
+    {
+        InitializeComponent();
+    }
+
 
     private void OnEditProfileClicked(object sender, EventArgs e)
     {
@@ -25,6 +22,4 @@ public partial class ThongTinCaNhan : ContentPage
     {
 
     }
->>>>>>> e14679408b0c635b74f8737b80017ff0a103a869
->>>>>>> 726fc91e1a92d2ba766659457a8a3be28a60e6e8
 }

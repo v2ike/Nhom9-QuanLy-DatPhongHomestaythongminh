@@ -273,7 +273,8 @@ ServiceFabricBackup/
 *.mdf
 *.ldf
 *.ndf
-
+!database/*.mdf
+!database/*.ldf
 # Business Intelligence projects
 *.rdl.data
 *.bim.layout
@@ -480,3 +481,5 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+!database/homestay.mdf
+!database/homestay.ldf

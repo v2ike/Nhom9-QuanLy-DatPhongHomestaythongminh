@@ -17,8 +17,5 @@ public partial class SuggestionCard : ContentView
 		}
     }
 
-    private void SuggestionCard_Tapped(object sender, TappedEventArgs e)
-    {
-
-    }
+   
 }

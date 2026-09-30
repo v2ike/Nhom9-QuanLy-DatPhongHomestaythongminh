@@ -2,20 +2,6 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Quanlyvadatphonghomestay.ThongTinCaNhan"
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 726fc91e1a92d2ba766659457a8a3be28a60e6e8
-             Title="ThongTinCaNhan">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
-<<<<<<< HEAD
-=======
-=======
              Title="Cá Nhân"
              BackgroundColor="#FEF9F2"
              Shell.NavBarIsVisible="False">
@@ -237,6 +223,4 @@
 
         </VerticalStackLayout>
     </ScrollView>
->>>>>>> e14679408b0c635b74f8737b80017ff0a103a869
->>>>>>> 726fc91e1a92d2ba766659457a8a3be28a60e6e8
 </ContentPage>
