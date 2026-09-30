@@ -2,6 +2,211 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Quanlyvadatphonghomestay.DanhGia"
+<<<<<<< HEAD
+             Title="Góp Ý &amp; Bình Luận"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#fef9f2">
+
+    <ContentPage.Resources>
+        <!-- Khai báo mã màu từ Tailwind config -->
+        <Color x:Key="Surface">#fef9f2</Color>
+        <Color x:Key="SurfaceContainerLow">#f8f3ed</Color>
+        <Color x:Key="SurfaceContainer">#f2ede7</Color>
+        <Color x:Key="SurfaceContainerLowest">#ffffff</Color>
+        <Color x:Key="Primary">#6f4627</Color>
+        <Color x:Key="OnPrimary">#ffffff</Color>
+        <Color x:Key="Secondary">#6d5b48</Color>
+        <Color x:Key="OnSurface">#1d1b18</Color>
+        <Color x:Key="OnSurfaceVariant">#51443c</Color>
+        <Color x:Key="Error">#ba1a1a</Color>
+        <Color x:Key="SecondaryContainer">#f7dec6</Color>
+        <Color x:Key="OnSecondaryContainer">#73614e</Color>
+    </ContentPage.Resources>
+
+    <!-- Root Grid để chứa Content, Bottom Bar và Modal Overlay -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- MAIN CONTENT (Có thể cuộn) -->
+        <ScrollView Grid.Row="0" BackgroundColor="{StaticResource SurfaceContainerLow}">
+            <VerticalStackLayout Padding="16,0,16,32" Spacing="16">
+
+                <!-- HEADER (Custom) -->
+                <Grid HeightRequest="60" ColumnDefinitions="Auto,*,Auto" Padding="0,10">
+                    <ImageButton Grid.Column="0" Source="back_icon.png" Clicked="OnBackClicked" 
+                                 WidthRequest="40" HeightRequest="40" CornerRadius="20" BackgroundColor="Transparent"/>
+                    <Label Grid.Column="1" Text="Góp Ý &amp; Bình Luận" 
+                           FontAttributes="Bold" FontSize="20" TextColor="{StaticResource OnSurface}" 
+                           VerticalOptions="Center" Margin="10,0,0,0"/>
+                    <Frame Grid.Column="2" WidthRequest="32" HeightRequest="32" CornerRadius="16" 
+                           BackgroundColor="{StaticResource Primary}" Padding="0" HasShadow="False"
+                           HorizontalOptions="End" VerticalOptions="Center">
+                        <Label Text="👤" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Frame>
+                </Grid>
+
+                <!-- TABS (Mô phỏng State Switcher) -->
+                <Border StrokeShape="RoundRectangle 12" BackgroundColor="{StaticResource SurfaceContainer}" StrokeThickness="0" Padding="4">
+                    <Grid ColumnDefinitions="*,*,*,*">
+                        <Button x:Name="TabNew" Grid.Column="0" Text="Viết mới" FontSize="12" Clicked="OnTabClicked" CommandParameter="new" BackgroundColor="{StaticResource Primary}" TextColor="{StaticResource OnPrimary}" CornerRadius="8" HeightRequest="35" Padding="0"/>
+                        <Button x:Name="TabSubmitted" Grid.Column="1" Text="Đã gửi" FontSize="12" Clicked="OnTabClicked" CommandParameter="submitted" BackgroundColor="Transparent" TextColor="{StaticResource OnSurfaceVariant}" CornerRadius="8" HeightRequest="35" Padding="0"/>
+                        <Button x:Name="TabEdit" Grid.Column="2" Text="Chỉnh sửa" FontSize="12" Clicked="OnTabClicked" CommandParameter="edit" BackgroundColor="Transparent" TextColor="{StaticResource OnSurfaceVariant}" CornerRadius="8" HeightRequest="35" Padding="0"/>
+                        <Button x:Name="TabSuccess" Grid.Column="3" Text="Thành công" FontSize="12" Clicked="OnTabClicked" CommandParameter="success" BackgroundColor="Transparent" TextColor="{StaticResource OnSurfaceVariant}" CornerRadius="8" HeightRequest="35" Padding="0"/>
+                    </Grid>
+                </Border>
+
+                <!-- 1. HOMESTAY SUMMARY CARD -->
+                <Border StrokeShape="RoundRectangle 12" BackgroundColor="{StaticResource SurfaceContainerLowest}" StrokeThickness="0" Padding="16">
+                    <Border.Shadow>
+                        <Shadow Brush="Black" Opacity="0.05" Offset="0,1" Radius="5"/>
+                    </Border.Shadow>
+                    <VerticalStackLayout Spacing="12">
+                        <Grid ColumnDefinitions="80,*" ColumnSpacing="16">
+                            <Border Grid.Column="0" StrokeShape="RoundRectangle 8" StrokeThickness="0" HeightRequest="80" WidthRequest="80">
+                                <Image Source="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ9W8GHRdZa0ZGGF23SjNS0THSvBPz5YCOVuD7vB8nn3L7f7Ht1aR1Q79rJxtpdMz2ovp5nwvutHqGpO1mio9J-AVL2JMnMV-30Q13_jj5w4CkNHFHbs6XOJf1hhlljyj2zmunV5Ny2KloUpiRTVylalIpbJ3zS2pvCtQTu7Se0RXG0cXAW79zMb_2XUaQbHCIwk0HGUpWsAlV_sfSJem_yGSfyfNNT7y3rVJt-MTLHHzyEdWJx5e5_w" Aspect="AspectFill"/>
+                            </Border>
+                            <VerticalStackLayout Grid.Column="1" Spacing="4">
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <Label Grid.Column="0" Text="An Nhiên Homestay" FontAttributes="Bold" FontSize="18" TextColor="{StaticResource OnSurface}" LineBreakMode="TailTruncation"/>
+                                    <Border Grid.Column="1" BackgroundColor="#E6EFE7" StrokeThickness="0" StrokeShape="RoundRectangle 10" Padding="6,2">
+                                        <Label Text="✓ Đã hoàn thành" FontSize="10" TextColor="#6F8F72"/>
+                                    </Border>
+                                </Grid>
+                                <Label Text="📍 12 Nguyễn Văn Cừ, Sơn Trà, ĐN" FontSize="12" TextColor="{StaticResource OnSurfaceVariant}"/>
+                                <Border BackgroundColor="{StaticResource SurfaceContainerLow}" StrokeThickness="0" StrokeShape="RoundRectangle 4" Padding="6,2" HorizontalOptions="Start">
+                                    <Label Text="Phòng Deluxe View Biển" FontSize="12" TextColor="{StaticResource Secondary}"/>
+                                </Border>
+                            </VerticalStackLayout>
+                        </Grid>
+                        <Border BackgroundColor="{StaticResource SurfaceContainerLow}" StrokeThickness="0" StrokeShape="RoundRectangle 8" Padding="12,8">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Label Grid.Column="0" Text="📅 20/09/2026 – 22/09/2026" FontSize="12" TextColor="{StaticResource OnSurfaceVariant}"/>
+                                <Label Grid.Column="1" Text="2 đêm lưu trú" FontSize="12" FontAttributes="Bold" TextColor="{StaticResource Primary}"/>
+                            </Grid>
+                        </Border>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- 2. FORM CONTAINER (Viết mới / Chỉnh sửa) -->
+                <VerticalStackLayout x:Name="FormContainer" Spacing="16">
+                    <!-- Notice -->
+                    <Border StrokeShape="RoundRectangle 12" BackgroundColor="#E8DCD0" StrokeThickness="0" Padding="16">
+                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
+                            <Label Grid.Column="0" Text="💡" FontSize="20" VerticalOptions="Start"/>
+                            <VerticalStackLayout Grid.Column="1">
+                                <Label Text="Chia sẻ trải nghiệm thực tế" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource Primary}"/>
+                                <Label Text="Những bình luận chân thực giúp An Nhiên hoàn thiện không gian ấm cúng hơn." FontSize="12" TextColor="{StaticResource OnSecondaryContainer}" Margin="0,4,0,0"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Border>
+
+                    <!-- Section A -->
+                    <Border StrokeShape="RoundRectangle 12" BackgroundColor="{StaticResource SurfaceContainerLowest}" StrokeThickness="0" Padding="16">
+                        <VerticalStackLayout Spacing="8">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Label Grid.Column="0" Text="Chia sẻ trải nghiệm của bạn" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource OnSurface}"/>
+                                <Label x:Name="CounterA" Grid.Column="1" Text="0/500" FontSize="12" TextColor="{StaticResource Secondary}"/>
+                            </Grid>
+                            <Label Text="Hãy chia sẻ cảm nhận và kỷ niệm bạn yêu thích nhất." FontSize="12" TextColor="{StaticResource OnSurfaceVariant}"/>
+                            <Border StrokeShape="RoundRectangle 8" BackgroundColor="{StaticResource SurfaceContainerLow}" StrokeThickness="0" Padding="12">
+                                <Editor x:Name="ReviewEditor" Placeholder="Bạn cảm thấy thế nào về không gian?" 
+                                        MaxLength="500" HeightRequest="100" BackgroundColor="Transparent" 
+                                        TextChanged="OnReviewTextChanged" TextColor="{StaticResource OnSurface}"/>
+                            </Border>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <!-- Section B -->
+                    <Border StrokeShape="RoundRectangle 12" BackgroundColor="{StaticResource SurfaceContainerLowest}" StrokeThickness="0" Padding="16">
+                        <VerticalStackLayout Spacing="8">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Label Grid.Column="0" Text="Góp ý cho homestay" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource OnSurface}"/>
+                                <Label x:Name="CounterB" Grid.Column="1" Text="0/500" FontSize="12" TextColor="{StaticResource Secondary}"/>
+                            </Grid>
+                            <Label Text="Bạn có gợi ý nào để An Nhiên cải thiện dịch vụ?" FontSize="12" TextColor="{StaticResource OnSurfaceVariant}"/>
+                            <Border StrokeShape="RoundRectangle 8" BackgroundColor="{StaticResource SurfaceContainerLow}" StrokeThickness="0" Padding="12">
+                                <Editor x:Name="FeedbackEditor" Placeholder="Đề xuất bổ sung đồ dùng, dịch vụ..." 
+                                        MaxLength="500" HeightRequest="80" BackgroundColor="Transparent" 
+                                        TextChanged="OnFeedbackTextChanged" TextColor="{StaticResource OnSurface}"/>
+                            </Border>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <!-- Edit Actions (Ẩn/Hiện bằng Code) -->
+                    <Grid x:Name="EditActions" ColumnDefinitions="*,*" ColumnSpacing="12" IsVisible="False" Margin="0,8,0,0">
+                        <Button Grid.Column="0" Text="Hủy bỏ" BackgroundColor="{StaticResource SurfaceContainer}" TextColor="{StaticResource OnSurface}" CornerRadius="8" HeightRequest="48" Clicked="OnCancelEditClicked"/>
+                        <Button Grid.Column="1" Text="✓ Lưu thay đổi" BackgroundColor="{StaticResource Primary}" TextColor="{StaticResource OnPrimary}" CornerRadius="8" HeightRequest="48" Clicked="OnSaveEditClicked"/>
+                    </Grid>
+                </VerticalStackLayout>
+
+                <!-- 3. SUBMITTED CONTAINER (Đã gửi) -->
+                <VerticalStackLayout x:Name="SubmittedContainer" Spacing="16" IsVisible="False">
+                    <Border StrokeShape="RoundRectangle 12" BackgroundColor="{StaticResource SurfaceContainerLowest}" StrokeThickness="0" Padding="16">
+                        <VerticalStackLayout Spacing="16">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <VerticalStackLayout Grid.Column="0">
+                                    <Label Text="Ý kiến của bạn đã gửi" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource OnSurface}"/>
+                                    <Label Text="Gửi lúc 14:30 · 22/09/2026" FontSize="12" TextColor="{StaticResource Secondary}"/>
+                                </VerticalStackLayout>
+                                <Border Grid.Column="1" BackgroundColor="{StaticResource SecondaryContainer}" StrokeThickness="0" StrokeShape="RoundRectangle 12" Padding="8,4" VerticalOptions="Start">
+                                    <Label Text="✓ Đã ghi nhận" FontSize="12" TextColor="{StaticResource OnSecondaryContainer}" FontAttributes="Bold"/>
+                                </Border>
+                            </Grid>
+
+                            <VerticalStackLayout Spacing="4">
+                                <Label Text="TRẢI NGHIỆM LƯU TRÚ" FontSize="10" TextColor="{StaticResource Secondary}" FontAttributes="Bold"/>
+                                <Border BackgroundColor="{StaticResource SurfaceContainerLow}" StrokeThickness="0" StrokeShape="RoundRectangle 8" Padding="12">
+                                    <Label Text="Kỳ nghỉ rất tuyệt vời, phòng ốc sạch sẽ, thoáng mát và view biển cực kỳ đẹp lúc bình minh. Gia đình chủ nhà tiếp đón rất nhiệt tình và chu đáo." FontSize="14" TextColor="{StaticResource OnSurface}"/>
+                                </Border>
+                            </VerticalStackLayout>
+
+                            <VerticalStackLayout Spacing="4">
+                                <Label Text="ĐỀ XUẤT CẢI THIỆN" FontSize="10" TextColor="{StaticResource Secondary}" FontAttributes="Bold"/>
+                                <Border BackgroundColor="{StaticResource SurfaceContainerLow}" StrokeThickness="0" StrokeShape="RoundRectangle 8" Padding="12">
+                                    <Label Text="Homestay nên trang bị thêm máy sấy tóc công suất lớn hơn và tăng cường thêm đèn đọc sách đầu giường." FontSize="14" TextColor="{StaticResource OnSurface}"/>
+                                </Border>
+                            </VerticalStackLayout>
+
+                            <Grid ColumnDefinitions="*,*" ColumnSpacing="16" Margin="0,8,0,0">
+                                <Button Grid.Column="0" Text="✎ Chỉnh sửa" BackgroundColor="{StaticResource SurfaceContainer}" TextColor="{StaticResource Primary}" CornerRadius="8" HeightRequest="44" Clicked="OnEditFeedbackClicked"/>
+                                <Button Grid.Column="1" Text="🗑 Xóa" BackgroundColor="Transparent" TextColor="{StaticResource Error}" CornerRadius="8" HeightRequest="44" BorderColor="{StaticResource Error}" BorderWidth="1" Clicked="OnDeleteFeedbackClicked"/>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- ASIDE BOTTOM BAR (Gửi đánh giá) -->
+        <Grid x:Name="BottomBar" Grid.Row="1" BackgroundColor="{StaticResource Surface}" Padding="16" 
+              Shadow="{Shadow Brush=Black, Opacity=0.1, Offset='0,-2'}">
+            <Button Text="➤ Gửi đánh giá" BackgroundColor="{StaticResource Primary}" TextColor="{StaticResource OnPrimary}" 
+                    HeightRequest="48" CornerRadius="8" FontAttributes="Bold" Clicked="OnSubmitClicked"/>
+        </Grid>
+
+        <!-- 4. SUCCESS MODAL (Overlay) -->
+        <Grid x:Name="SuccessModal" Grid.Row="0" Grid.RowSpan="2" BackgroundColor="#99000000" IsVisible="False">
+            <Border StrokeShape="RoundRectangle 16" BackgroundColor="{StaticResource SurfaceContainerLowest}" 
+                    StrokeThickness="0" Padding="24" WidthRequest="300" HorizontalOptions="Center" VerticalOptions="Center">
+                <VerticalStackLayout Spacing="16" HorizontalOptions="Center">
+                    <Frame WidthRequest="64" HeightRequest="64" CornerRadius="32" BackgroundColor="#E6EFE7" HasShadow="False" HorizontalOptions="Center" Padding="0">
+                        <Label Text="✓" FontSize="36" TextColor="#6F8F72" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Frame>
+                    <Label Text="Cảm ơn bạn đã góp ý!" FontAttributes="Bold" FontSize="20" TextColor="{StaticResource OnSurface}" HorizontalOptions="Center"/>
+                    <Label Text="Bình luận và đóng góp quý giá của bạn đã được gửi trực tiếp tới An Nhiên Homestay." 
+                           FontSize="14" TextColor="{StaticResource OnSurfaceVariant}" HorizontalTextAlignment="Center"/>
+                    <VerticalStackLayout Spacing="12" Margin="0,8,0,0">
+                        <Button Text="Xem lại góp ý" BackgroundColor="{StaticResource Primary}" TextColor="{StaticResource OnPrimary}" CornerRadius="8" HeightRequest="44" Clicked="OnViewSubmittedClicked"/>
+                        <Button Text="Về trang đặt phòng" BackgroundColor="{StaticResource SurfaceContainer}" TextColor="{StaticResource OnSurface}" CornerRadius="8" HeightRequest="44" Clicked="OnGoHomeClicked"/>
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Border>
+        </Grid>
+    </Grid>
+=======
              Title="DanhGia">
     <VerticalStackLayout>
         <Label 
@@ -9,4 +214,5 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
     </VerticalStackLayout>
+>>>>>>> 726fc91e1a92d2ba766659457a8a3be28a60e6e8
 </ContentPage>

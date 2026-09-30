@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <<<<<<< HEAD
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Quanlyvadatphonghomestay"
+=======
+<<<<<<< HEAD
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -10,12 +15,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Quanlyvadatphonghomestay"
 >>>>>>> e14679408b0c635b74f8737b80017ff0a103a869
+>>>>>>> 726fc91e1a92d2ba766659457a8a3be28a60e6e8
              x:Class="Quanlyvadatphonghomestay.TrangChu"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="#D6C4B0">
 
     <Grid RowDefinitions="Auto,*,Auto">
 
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
         <!-- ================= HEADER ================= -->
 
@@ -25,6 +33,7 @@
                 StrokeThickness="1.5"
                 Padding="18,12">
 =======
+>>>>>>> 726fc91e1a92d2ba766659457a8a3be28a60e6e8
         <!-- HEADER -->
         <Border
             Grid.Row="0"
@@ -32,12 +41,17 @@
             Stroke="#52361E"
             StrokeThickness="1.5"
             Padding="18,12">
+<<<<<<< HEAD
+=======
 >>>>>>> e14679408b0c635b74f8737b80017ff0a103a869
+>>>>>>> 726fc91e1a92d2ba766659457a8a3be28a60e6e8
 
             <Grid ColumnDefinitions="*,Auto">
 
                 <HorizontalStackLayout Spacing="12">
 
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
                     <Border WidthRequest="46"
                             HeightRequest="46"
@@ -64,6 +78,7 @@
                                TextColor="#5D4037"/>
 
 =======
+>>>>>>> 726fc91e1a92d2ba766659457a8a3be28a60e6e8
                     <Border
                         WidthRequest="46"
                         HeightRequest="46"
@@ -89,11 +104,16 @@
                             Text="Bạn muốn nghỉ ngơi ở đâu hôm nay?"
                             FontSize="11"
                             TextColor="#5D4037"/>
+<<<<<<< HEAD
+=======
 >>>>>>> e14679408b0c635b74f8737b80017ff0a103a869
+>>>>>>> 726fc91e1a92d2ba766659457a8a3be28a60e6e8
                     </VerticalStackLayout>
 
                 </HorizontalStackLayout>
 
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 
                 <Border Grid.Column="1"
@@ -152,6 +172,7 @@
                                    Completed="SearchEntry_Completed"/>
 
 =======
+>>>>>>> 726fc91e1a92d2ba766659457a8a3be28a60e6e8
                 <Border
                     Grid.Column="1"
                     WidthRequest="44"
@@ -206,11 +227,16 @@
                                 FontSize="13"
                                 BackgroundColor="Transparent"
                                 Completed="SearchEntry_Completed"/>
+<<<<<<< HEAD
+=======
 >>>>>>> e14679408b0c635b74f8737b80017ff0a103a869
+>>>>>>> 726fc91e1a92d2ba766659457a8a3be28a60e6e8
                         </Grid>
 
                     </Border>
 
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 
                     <Border Grid.Column="1"
@@ -230,6 +256,7 @@
                                VerticalOptions="Center"/>
 
 =======
+>>>>>>> 726fc91e1a92d2ba766659457a8a3be28a60e6e8
                     <Border
                         Grid.Column="1"
                         BackgroundColor="#3E2723"
@@ -242,22 +269,31 @@
                             FontSize="23"
                             HorizontalOptions="Center"
                             VerticalOptions="Center"/>
+<<<<<<< HEAD
+=======
 >>>>>>> e14679408b0c635b74f8737b80017ff0a103a869
+>>>>>>> 726fc91e1a92d2ba766659457a8a3be28a60e6e8
                     </Border>
 
                 </Grid>
 
 
 <<<<<<< HEAD
+                <!-- LOCATION (Chỉ Binding ImageUrl) -->
+=======
+<<<<<<< HEAD
                 <!-- ================= LOCATION ================= -->
 
 =======
                 <!-- LOCATION (Chỉ Binding ImageUrl) -->
 >>>>>>> e14679408b0c635b74f8737b80017ff0a103a869
+>>>>>>> 726fc91e1a92d2ba766659457a8a3be28a60e6e8
                 <VerticalStackLayout Spacing="10">
 
                     <Grid ColumnDefinitions="*,Auto">
 
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
                         <VerticalStackLayout Spacing="1">
 
@@ -335,6 +371,7 @@
                             </DataTemplate>
 
 =======
+>>>>>>> 726fc91e1a92d2ba766659457a8a3be28a60e6e8
                         <VerticalStackLayout>
 
                             <Label
@@ -390,7 +427,10 @@
 </Image>
                                 </Border>
                             </DataTemplate>
+<<<<<<< HEAD
+=======
 >>>>>>> e14679408b0c635b74f8737b80017ff0a103a869
+>>>>>>> 726fc91e1a92d2ba766659457a8a3be28a60e6e8
                         </CollectionView.ItemTemplate>
 
                     </CollectionView>
@@ -399,15 +439,21 @@
 
 
 <<<<<<< HEAD
+                <!-- FEATURED HOMESTAYS -->
+=======
+<<<<<<< HEAD
                 <!-- ================= FEATURED HOMESTAYS ================= -->
 
 =======
                 <!-- FEATURED HOMESTAYS -->
 >>>>>>> e14679408b0c635b74f8737b80017ff0a103a869
+>>>>>>> 726fc91e1a92d2ba766659457a8a3be28a60e6e8
                 <VerticalStackLayout Spacing="10">
 
                     <Grid ColumnDefinitions="*,Auto">
 
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
                         <VerticalStackLayout Spacing="1">
 
@@ -447,6 +493,7 @@
 
 
 =======
+>>>>>>> 726fc91e1a92d2ba766659457a8a3be28a60e6e8
                         <VerticalStackLayout>
 
                             <Label
@@ -483,11 +530,16 @@
 
                         </CollectionView.ItemsLayout>
 
+<<<<<<< HEAD
+=======
 >>>>>>> e14679408b0c635b74f8737b80017ff0a103a869
+>>>>>>> 726fc91e1a92d2ba766659457a8a3be28a60e6e8
                         <CollectionView.ItemTemplate>
 
                             <DataTemplate>
 
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
                                 <components:HomestayCard/>
 
@@ -672,6 +724,7 @@
                                                        TextColor="#8B6F47"
                                                        VerticalOptions="End"/>
 =======
+>>>>>>> 726fc91e1a92d2ba766659457a8a3be28a60e6e8
                                 <Border
                                     WidthRequest="290"
                                     BackgroundColor="#FAF5EE"
@@ -776,17 +829,24 @@
                                                     FontSize="11"
                                                     TextColor="#8B6F47"
                                                     FontAttributes="Bold"/>
+<<<<<<< HEAD
+=======
 >>>>>>> e14679408b0c635b74f8737b80017ff0a103a869
+>>>>>>> 726fc91e1a92d2ba766659457a8a3be28a60e6e8
 
                                             </Grid>
 
                                         </VerticalStackLayout>
 
 <<<<<<< HEAD
+                                    </VerticalStackLayout>
+=======
+<<<<<<< HEAD
                                     </Grid>
 =======
                                     </VerticalStackLayout>
 >>>>>>> e14679408b0c635b74f8737b80017ff0a103a869
+>>>>>>> 726fc91e1a92d2ba766659457a8a3be28a60e6e8
 
                                 </Border>
 
@@ -803,6 +863,8 @@
         </ScrollView>
 
 
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
         <!-- ================= BOTTOM NAVIGATION ================= -->
 
@@ -890,6 +952,7 @@
                            HorizontalOptions="Center"/>
 
 =======
+>>>>>>> 726fc91e1a92d2ba766659457a8a3be28a60e6e8
         <!-- BOTTOM NAV -->
         <Border
             Grid.Row="2"
@@ -967,7 +1030,10 @@
                         Text="Cá nhân"
                         FontSize="10"
                         TextColor="#685B4F"/>
+<<<<<<< HEAD
+=======
 >>>>>>> e14679408b0c635b74f8737b80017ff0a103a869
+>>>>>>> 726fc91e1a92d2ba766659457a8a3be28a60e6e8
                 </VerticalStackLayout>
 
             </Grid>
