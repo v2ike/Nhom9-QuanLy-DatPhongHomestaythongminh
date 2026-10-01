@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Quanlyvadatphonghomestay"
+             xmlns:components="clr-namespace:Quanlyvadatphonghomestay.Components"
+             x:Class="Quanlyvadatphonghomestay.TrangChu"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#D6C4B0">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- ================= HEADER ================= -->
+        <Border Grid.Row="0"
+                BackgroundColor="#BFA992"
+                Stroke="#52361E"
+                StrokeThickness="1.5"
+                Padding="18,12">
+
+            <Grid ColumnDefinitions="*,Auto">
+
+                <HorizontalStackLayout Spacing="12">
+
+                    <Border WidthRequest="46"
+                            HeightRequest="46"
+                            Stroke="White"
+                            StrokeThickness="2"
+                            StrokeShape="RoundRectangle 23">
+
+                        <Image Source="avatar1.png"
+                               Aspect="AspectFill"/>
+
+                    </Border>
+
+                    <VerticalStackLayout VerticalOptions="Center"
+                                         Spacing="1">
+
+                        <Label x:Name="HelloLabel"
+                               Text="Xin chào 👋"
+                               FontFamily="OpenSans-Semibold"
+                               FontSize="18"
+                               TextColor="#3E2723"/>
+
+                        <Label Text="Bạn muốn nghỉ ngơi ở đâu hôm nay?"
+                               FontSize="11"
+                               TextColor="#5D4037"/>
+
+                    </VerticalStackLayout>
+
+                </HorizontalStackLayout>
+
+                <Border Grid.Column="1"
+                        WidthRequest="44"
+                        HeightRequest="44"
+                        BackgroundColor="#FDF9F4"
+                        Stroke="#8B6F47"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 22">
+
+                    <Label Text="🔔"
+                           FontSize="20"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+
+                </Border>
+
+            </Grid>
+
+        </Border>
+
+
+        <!-- ================= CONTENT ================= -->
+        <ScrollView Grid.Row="1">
+
+            <VerticalStackLayout Padding="20,18,20,30"
+                                 Spacing="26">
+
+                <!-- ================= SEARCH ================= -->
+                <Grid ColumnDefinitions="*,52"
+                      ColumnSpacing="10">
+
+                    <Border BackgroundColor="#FDFAF6"
+                            Stroke="#8B6F47"
+                            StrokeThickness="1.5"
+                            StrokeShape="RoundRectangle 16">
+
+                        <Grid ColumnDefinitions="40,*">
+
+                            <Label Text="⌕"
+                                   FontSize="27"
+                                   TextColor="#8B6F47"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"/>
+
+                            <Entry x:Name="SearchEntry"
+                                   Grid.Column="1"
+                                   Placeholder="Tìm kiếm Homestay, địa điểm..."
+                                   PlaceholderColor="#8A7A70"
+                                   TextColor="#3E3028"
+                                   FontSize="13"
+                                   BackgroundColor="Transparent"
+                                   Completed="SearchEntry_Completed"/>
+
+                        </Grid>
+
+                    </Border>
+
+                    <Border Grid.Column="1"
+                            BackgroundColor="#3E2723"
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 16">
+
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="chuyentimkiem"/>
+                        </Border.GestureRecognizers>
+
+                        <Label Text="☷"
+                               TextColor="White"
+                               FontSize="23"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+
+                    </Border>
+
+                </Grid>
+
+
+                <!-- ================= LOCATION ================= -->
+                <VerticalStackLayout Spacing="10">
+
+                    <Grid ColumnDefinitions="*,Auto">
+
+                        <VerticalStackLayout Spacing="1">
+
+                            <Label Text="Khám phá theo địa điểm"
+                                   FontFamily="OpenSans-Semibold"
+                                   FontSize="18"
+                                   TextColor="#3E2723"/>
+
+                            <Label Text="Những điểm đến thư giãn tuyệt vời"
+                                   FontSize="15"
+                                   TextColor="#685B4F"/>
+
+                        </VerticalStackLayout>
+
+                        <Label Grid.Column="1"
+                               Text="Xem tất cả"
+                               TextColor="#8B6F47"
+                               FontSize="11"
+                               VerticalOptions="End"/>
+
+                    </Grid>
+
+                    <CollectionView ItemsSource="{Binding Locations}"
+                                    HeightRequest="200"
+                                    SelectionMode="None"
+                                    HorizontalOptions="Fill"
+                                    HorizontalScrollBarVisibility="Never">
+
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal"
+                                               ItemSpacing="15"/>
+                        </CollectionView.ItemsLayout>
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border WidthRequest="150"
+                                        HeightRequest="190"
+                                        Padding="0"
+                                        Stroke="#D6C4B0"
+                                        StrokeThickness="1.5"
+                                        StrokeShape="RoundRectangle 16">
+
+                                    <Grid>
+                                        <Image Source="{Binding ImageUrl}"
+                                               Aspect="AspectFill"
+                                               HorizontalOptions="Fill"
+                                               VerticalOptions="Fill"/>
+
+                                        <BoxView BackgroundColor="#40000000"/>
+
+                                        <VerticalStackLayout VerticalOptions="End"
+                                                             Padding="10"
+                                                             Spacing="2">
+
+                                            <Label Text="{Binding Name}"
+                                                   FontFamily="OpenSans-Semibold"
+                                                   FontSize="14"
+                                                   TextColor="White"
+                                                   LineBreakMode="TailTruncation"/>
+
+                                        </VerticalStackLayout>
+                                    </Grid>
+
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+
+                    </CollectionView>
+
+                </VerticalStackLayout>
+
+
+                <!-- ================= FEATURED HOMESTAYS ================= -->
+                <VerticalStackLayout Spacing="10">
+
+                    <Grid ColumnDefinitions="*,Auto">
+
+                        <VerticalStackLayout Spacing="1">
+
+                            <Label Text="Homestay nổi bật"
+                                   FontFamily="OpenSans-Semibold"
+                                   FontSize="18"
+                                   TextColor="#3E2723"/>
+
+                            <Label Text="Trải nghiệm nghỉ dưỡng đẳng cấp"
+                                   FontSize="15"
+                                   TextColor="#685B4F"/>
+
+                        </VerticalStackLayout>
+
+                        <Label Grid.Column="1"
+                               Text="Xem thêm"
+                               TextColor="#8B6F47"
+                               FontSize="15"
+                               VerticalOptions="End"/>
+
+                    </Grid>
+
+                    <CollectionView ItemsSource="{Binding Homestays}"
+                                    HeightRequest="335"
+                                    SelectionMode="Single"
+                                    SelectionChanged="Homestay_SelectionChanged"
+                                    HorizontalScrollBarVisibility="Never">
+
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal"
+                                               ItemSpacing="16"/>
+                        </CollectionView.ItemsLayout>
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <components:HomestayCard/>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+
+                    </CollectionView>
+
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+
+        </ScrollView>
+
+    </Grid>
+
+</ContentPage>

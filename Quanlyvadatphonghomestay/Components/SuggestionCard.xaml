@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Quanlyvadatphonghomestay.Components.SuggestionCard">
+
+    <Border BackgroundColor="#FAF5EE"
+            Stroke="#E6D9CC"
+            StrokeThickness="1"
+            StrokeShape="RoundRectangle 14"
+            Padding="9">
+
+        <Border.GestureRecognizers>
+            <TapGestureRecognizer Tapped="SuggestionCard_Tapped"/>
+        </Border.GestureRecognizers>
+
+        <Grid ColumnDefinitions="88,*"
+              ColumnSpacing="12">
+
+            <!-- ẢNH -->
+            <Border WidthRequest="88"
+                    HeightRequest="88"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 11">
+
+                <Image Source="{Binding ImageUrl}"
+                       Aspect="AspectFill"/>
+
+            </Border>
+
+            <!-- THÔNG TIN -->
+            <VerticalStackLayout Grid.Column="1"
+                                 Spacing="4">
+
+                <!-- TÊN + RATING -->
+                <Grid ColumnDefinitions="*,Auto">
+
+                    <Label Text="{Binding Name}"
+                           FontFamily="OpenSans-Semibold"
+                           FontSize="14"
+                           TextColor="#3E2723"
+                           LineBreakMode="TailTruncation"
+                           MaxLines="1"/>
+
+                    <Border Grid.Column="1"
+                            BackgroundColor="#FFF8E7"
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 7"
+                            Padding="5,2">
+
+                        <HorizontalStackLayout Spacing="2">
+
+                            <Label Text="★"
+                                   FontSize="9"
+                                   TextColor="#B27A20"/>
+
+                            <Label Text="{Binding Rating}"
+                                   FontSize="9"
+                                   FontAttributes="Bold"
+                                   TextColor="#3E3028"/>
+
+                        </HorizontalStackLayout>
+
+                    </Border>
+
+                </Grid>
+
+                <!-- ĐỊA CHỈ -->
+                <Label Text="{Binding Address}"
+                       FontSize="10"
+                       TextColor="#685B4F"
+                       LineBreakMode="TailTruncation"
+                       MaxLines="1"/>
+
+                <!-- TAG -->
+                <Border HorizontalOptions="Start"
+                        BackgroundColor="#F1E7DA"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 6"
+                        Padding="6,2">
+
+                    <Label Text="{Binding Tag}"
+                           FontSize="8"
+                           TextColor="#685B4F"
+                           LineBreakMode="TailTruncation"/>
+
+                </Border>
+
+                <!-- ĐƯỜNG KẺ -->
+                <BoxView HeightRequest="1"
+                         BackgroundColor="#E6D9CC"
+                         Margin="0,1,0,0"/>
+
+                <!-- GIÁ -->
+                <Grid ColumnDefinitions="*,Auto">
+
+                    <HorizontalStackLayout Spacing="2"
+                                           VerticalOptions="End">
+
+                        <Label Text="{Binding Price, StringFormat='{}{0:N0}₫'}"
+                               FontFamily="OpenSans-Semibold"
+                               FontSize="12"
+                               TextColor="#3E2723"/>
+
+                        <Label Text="/ đêm"
+                               FontSize="9"
+                               TextColor="#685B4F"
+                               VerticalOptions="End"/>
+
+                    </HorizontalStackLayout>
+
+                    <Label Grid.Column="1"
+                           Text="Đặt ngay →"
+                           FontSize="9"
+                           FontAttributes="Bold"
+                           TextColor="#8B6F47"
+                           VerticalOptions="End"/>
+
+                </Grid>
+
+            </VerticalStackLayout>
+
+        </Grid>
+
+    </Border>
+
+</ContentView>

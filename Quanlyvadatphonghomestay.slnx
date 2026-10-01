@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="homestay.api/homestay.api.csproj" Id="e97da5b4-8041-42ff-8f03-a31b706c8d30" />
+  <Project Path="Quanlyvadatphonghomestay/Quanlyvadatphonghomestay.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
+</Solution>
