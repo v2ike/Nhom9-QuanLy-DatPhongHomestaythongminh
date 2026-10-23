@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Quanlyvadatphonghomestay.Components.HomestayCard">
+    <Border
+        WidthRequest="280"
+        BackgroundColor="#FFFDFC"
+        Stroke="#C89F72"
+        StrokeThickness="1"
+        StrokeShape="RoundRectangle 18">
+
+        <VerticalStackLayout>
+
+            <!-- Ảnh -->
+            <Border
+                HeightRequest="170"
+                Padding="0"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 18,18,0,0">
+
+                <Image
+                    Source="{Binding ImageUrl}"
+                    Aspect="AspectFill"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Fill"/>
+            </Border>
+
+
+            <!-- Nội dung -->
+            <VerticalStackLayout
+                Padding="14"
+                Spacing="8">
+
+                <!-- Tên -->
+                <Label
+                    Text="{Binding Name}"
+                    FontSize="17"
+                    FontAttributes="Bold"
+                    TextColor="#3E3028"
+                    LineBreakMode="TailTruncation"/>
+
+                <!-- Địa chỉ -->
+                <Label
+                    Text="{Binding Address}"
+                    FontSize="12"
+                    TextColor="#8A7A70"
+                    LineBreakMode="TailTruncation"/>
+
+                <!-- Mô tả -->
+                <Label
+                    Text="{Binding Description}"
+                    FontSize="11"
+                    TextColor="#8A7A70"
+                    MaxLines="2"
+                    LineBreakMode="TailTruncation"/>
+
+                <BoxView
+                    HeightRequest="1"
+                    Color="#E6D9CC"/>
+
+                <!-- Giá -->
+                <Grid ColumnDefinitions="*,Auto">
+
+                    <Label
+                        Text="{Binding Price, StringFormat='Giá từ {0:N0}₫ / đêm'}"
+                        FontSize="13"
+                        FontAttributes="Bold"
+                        TextColor="#6F452C"/>
+
+                    <Label
+                        Grid.Column="1"
+                        Text="Đặt ngay →"
+                        FontSize="11"
+                        FontAttributes="Bold"
+                        TextColor="#8B5E3C"/>
+
+                </Grid>
+
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+
+    </Border>
+</ContentView>

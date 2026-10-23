@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Quanlyvadatphonghomestay.Modau"
+             Title="Modau"
+             BackgroundColor="#FDF9F2"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid RowDefinitions="*, Auto, *" 
+          Padding="24,48">
+        <BoxView Grid.RowSpan="3" InputTransparent="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <BoxView.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="#FAF4EC" Offset="0.0" />
+                    <GradientStop Color="#EFE5D8" Offset="0.5" />
+                    <GradientStop Color="#E2D2C2" Offset="1.0" />
+                </LinearGradientBrush>
+            </BoxView.Background>
+        </BoxView>
+
+        <VerticalStackLayout Grid.Row="1" Spacing="24" HorizontalOptions="Center" VerticalOptions="Center">
+
+            <Border x:Name="LogoCard"
+                    WidthRequest="130"
+                    HeightRequest="130"
+                    StrokeShape="RoundRectangle 24"
+                    BackgroundColor="#FDFDFD"
+                    Stroke="#E6D9CC"
+                    StrokeThickness="1"
+                    Padding="20"
+                    Opacity="0"
+                    Scale="0.8"
+                    HorizontalOptions="Center">
+                <Border.Shadow>
+                    <Shadow Brush="#6F452C" Offset="0,10" Radius="15" Opacity="0.12" />
+                </Border.Shadow>
+
+                <Image Source="logo.png" Aspect="AspectFit"/>
+            </Border>
+
+            <VerticalStackLayout x:Name="TextContainer" Spacing="12" Opacity="0" TranslationY="20">
+                <Label Text="StayHome"
+                       FontSize="44"
+                       FontAttributes="Bold"
+                       TextColor="#3E3028"
+                       HorizontalOptions="Center" />
+
+                <Label Text="Nơi nghỉ dưỡng, nơi thuộc về bạn."
+                       FontSize="16"
+                       TextColor="#6F5240"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center" />
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+
+        <Grid Grid.Row="2" VerticalOptions="End" Margin="0,0,0,16">
+            <VerticalStackLayout x:Name="BottomContainer" Spacing="28" HorizontalOptions="Center" Opacity="0" TranslationY="20">
+
+                <VerticalStackLayout Spacing="12" HorizontalOptions="Center">
+                    <ProgressBar x:Name="LoadingBar"
+                                 Progress="0" 
+                                 ProgressColor="#8B5E3C" 
+                                 BackgroundColor="#EADFD4"
+                                 WidthRequest="220" 
+                                 HeightRequest="6"/>
+
+                    <Label Text="Đang tải trải nghiệm..."
+                           FontSize="12"
+                           FontAttributes="Bold"
+                           TextColor="#7A5C47"
+                           HorizontalOptions="Center" />
+                </VerticalStackLayout>
+
+                <Label Text="KHÁM PHÁ NHỮNG NƠI Ở TUYỆT VỜI"
+                       FontSize="11"
+                       CharacterSpacing="2"
+                       TextColor="#8A7A70"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center" />
+            </VerticalStackLayout>
+        </Grid>
+
+    </Grid>
+</ContentPage>
