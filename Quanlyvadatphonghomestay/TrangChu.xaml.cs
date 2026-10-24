@@ -92,14 +92,15 @@ namespace Quanlyvadatphonghomestay
 
         private async void SearchEntry_Completed(object sender, EventArgs e)
         {
-            
+
         }
 
+        // ĐÃ CẬP NHẬT: TRUYỀN ĐỐI TƯỢNG HOMESTAY SANG CHITIETHOMESTAY
         private async void Homestay_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var homestay = e.CurrentSelection.FirstOrDefault() as Homestay;
+            var selectedHomestay = e.CurrentSelection.FirstOrDefault() as Homestay;
 
-            if (homestay == null)
+            if (selectedHomestay == null)
                 return;
 
             if (sender is CollectionView collectionView)
@@ -107,12 +108,18 @@ namespace Quanlyvadatphonghomestay
                 collectionView.SelectedItem = null;
             }
 
-            await DisplayAlert("Homestay", $"Bạn chọn: {homestay.Name}", "OK");
+            // Truyền dữ liệu sang ChiTietHomestay qua Constructor
+            await Navigation.PushAsync(new ChiTietHomestay(selectedHomestay));
         }
 
         private void chuyentimkiem(object sender, TappedEventArgs e)
         {
             // Xử lý sự kiện khi bấm vào thanh tìm kiếm nếu cần
+        }
+
+        private async void chuyen_thongtincanhan(object sender, TappedEventArgs e)
+        {
+            await Navigation.PushAsync(new ThongTinCaNhan());
         }
     }
 }

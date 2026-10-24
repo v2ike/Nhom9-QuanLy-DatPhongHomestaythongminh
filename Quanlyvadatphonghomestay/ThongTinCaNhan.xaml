@@ -188,14 +188,24 @@
 
                     <BoxView HeightRequest="1" Color="#ECE7E2" Margin="16,0" />
 
-                    <Grid Padding="16" ColumnDefinitions="Auto,*,Auto">
-                        <Label Text="⚙️" FontSize="20" VerticalOptions="Center" />
-                        <VerticalStackLayout Grid.Column="1" Margin="12,0,0,0" VerticalOptions="Center">
-                            <Label Text="Cài đặt ứng dụng" FontSize="14" TextColor="#1D1B18" />
-                            <Label Text="Tiếng Việt • Tiền tệ VNĐ" FontSize="12" TextColor="#51443C" />
-                        </VerticalStackLayout>
-                        <Label Grid.Column="2" Text="›" FontSize="20" TextColor="#83746B" VerticalOptions="Center" />
-                    </Grid>
+                    <!-- MỤC CÀI ĐẶT ỨNG DỤNG CÓ CỬ CHỈ CHỌN NGÔN NGỮ -->
+                    <Border BackgroundColor="White"
+                            StrokeThickness="0"
+                            Padding="0">
+
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnAppSettingsClicked" />
+                        </Border.GestureRecognizers>
+
+                        <Grid Padding="16" ColumnDefinitions="Auto,*,Auto">
+                            <Label Text="⚙️" FontSize="20" VerticalOptions="Center" />
+                            <VerticalStackLayout Grid.Column="1" Margin="12,0,0,0" VerticalOptions="Center">
+                                <Label Text="Cài đặt ứng dụng" FontSize="14" TextColor="#1D1B18" />
+                                <Label Text="{Binding SelectedLanguageText}" FontSize="12" TextColor="#51443C" />
+                            </VerticalStackLayout>
+                            <Label Grid.Column="2" Text="›" FontSize="20" TextColor="#83746B" VerticalOptions="Center" />
+                        </Grid>
+                    </Border>
                 </VerticalStackLayout>
             </Border>
 

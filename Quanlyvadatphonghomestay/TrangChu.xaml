@@ -13,41 +13,50 @@
         <Border Grid.Row="0"
                 BackgroundColor="#BFA992"
                 Stroke="#52361E"
-                StrokeThickness="1.5"
-                Padding="18,12">
+                StrokeThickness="1"
+                Padding="18,14">
+            <Border.Shadow>
+                <Shadow Brush="#3E2723" Offset="0,2" Radius="6" Opacity="0.15"/>
+            </Border.Shadow>
 
             <Grid ColumnDefinitions="*,Auto">
 
                 <HorizontalStackLayout Spacing="12">
 
-                    <Border WidthRequest="46"
-                            HeightRequest="46"
+                    <!-- Avatar nút bấm -->
+                    <Border WidthRequest="48"
+                            HeightRequest="48"
                             Stroke="White"
                             StrokeThickness="2"
-                            StrokeShape="RoundRectangle 23">
+                            StrokeShape="RoundRectangle 24"
+                            BackgroundColor="#F7DEC6">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="chuyen_thongtincanhan"/>
+                        </Border.GestureRecognizers>
 
-                        <Image Source="avatar1.png"
-                               Aspect="AspectFill"/>
-
+                        <Label Text="👤"
+                               FontSize="26"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
                     </Border>
 
-                    <VerticalStackLayout VerticalOptions="Center"
-                                         Spacing="1">
-
+                    <!-- Lời chào -->
+                    <VerticalStackLayout VerticalOptions="Center" Spacing="2">
                         <Label x:Name="HelloLabel"
                                Text="Xin chào 👋"
                                FontFamily="OpenSans-Semibold"
                                FontSize="18"
+                               FontAttributes="Bold"
                                TextColor="#3E2723"/>
 
                         <Label Text="Bạn muốn nghỉ ngơi ở đâu hôm nay?"
-                               FontSize="11"
+                               FontSize="12"
                                TextColor="#5D4037"/>
-
                     </VerticalStackLayout>
 
                 </HorizontalStackLayout>
 
+                <!-- Nút Thông báo -->
                 <Border Grid.Column="1"
                         WidthRequest="44"
                         HeightRequest="44"
@@ -55,38 +64,39 @@
                         Stroke="#8B6F47"
                         StrokeThickness="1"
                         StrokeShape="RoundRectangle 22">
+                    <Border.Shadow>
+                        <Shadow Brush="#3E2723" Offset="0,2" Radius="4" Opacity="0.1"/>
+                    </Border.Shadow>
 
                     <Label Text="🔔"
                            FontSize="20"
                            HorizontalOptions="Center"
                            VerticalOptions="Center"/>
-
                 </Border>
 
             </Grid>
-
         </Border>
 
 
         <!-- ================= CONTENT ================= -->
         <ScrollView Grid.Row="1">
 
-            <VerticalStackLayout Padding="20,18,20,30"
-                                 Spacing="26">
+            <VerticalStackLayout Padding="20,20,20,30" Spacing="26">
 
-                <!-- ================= SEARCH ================= -->
-                <Grid ColumnDefinitions="*,52"
-                      ColumnSpacing="10">
+                <!-- ================= SEARCH BAR ================= -->
+                <Grid ColumnDefinitions="*,52" ColumnSpacing="12">
 
                     <Border BackgroundColor="#FDFAF6"
                             Stroke="#8B6F47"
                             StrokeThickness="1.5"
                             StrokeShape="RoundRectangle 16">
+                        <Border.Shadow>
+                            <Shadow Brush="#3E2723" Offset="0,3" Radius="6" Opacity="0.08"/>
+                        </Border.Shadow>
 
-                        <Grid ColumnDefinitions="40,*">
-
+                        <Grid ColumnDefinitions="44,*">
                             <Label Text="⌕"
-                                   FontSize="27"
+                                   FontSize="26"
                                    TextColor="#8B6F47"
                                    HorizontalOptions="Center"
                                    VerticalOptions="Center"/>
@@ -96,60 +106,59 @@
                                    Placeholder="Tìm kiếm Homestay, địa điểm..."
                                    PlaceholderColor="#8A7A70"
                                    TextColor="#3E3028"
-                                   FontSize="13"
+                                   FontSize="14"
                                    BackgroundColor="Transparent"
                                    Completed="SearchEntry_Completed"/>
-
                         </Grid>
-
                     </Border>
 
+                    <!-- Nút lọc / tìm kiếm nâng cao -->
                     <Border Grid.Column="1"
                             BackgroundColor="#3E2723"
                             StrokeThickness="0"
                             StrokeShape="RoundRectangle 16">
-
                         <Border.GestureRecognizers>
                             <TapGestureRecognizer Tapped="chuyentimkiem"/>
                         </Border.GestureRecognizers>
+                        <Border.Shadow>
+                            <Shadow Brush="#3E2723" Offset="0,3" Radius="6" Opacity="0.2"/>
+                        </Border.Shadow>
 
                         <Label Text="☷"
                                TextColor="White"
-                               FontSize="23"
+                               FontSize="22"
                                HorizontalOptions="Center"
                                VerticalOptions="Center"/>
-
                     </Border>
 
                 </Grid>
 
 
-                <!-- ================= LOCATION ================= -->
-                <VerticalStackLayout Spacing="10">
+                <!-- ================= LOCATIONS SECTION ================= -->
+                <VerticalStackLayout Spacing="12">
 
                     <Grid ColumnDefinitions="*,Auto">
-
-                        <VerticalStackLayout Spacing="1">
-
+                        <VerticalStackLayout Spacing="2">
                             <Label Text="Khám phá theo địa điểm"
                                    FontFamily="OpenSans-Semibold"
                                    FontSize="18"
+                                   FontAttributes="Bold"
                                    TextColor="#3E2723"/>
 
                             <Label Text="Những điểm đến thư giãn tuyệt vời"
-                                   FontSize="15"
+                                   FontSize="13"
                                    TextColor="#685B4F"/>
-
                         </VerticalStackLayout>
 
                         <Label Grid.Column="1"
-                               Text="Xem tất cả"
+                               Text="Lướt qua ›"
                                TextColor="#8B6F47"
-                               FontSize="11"
+                               FontAttributes="Bold"
+                               FontSize="12"
                                VerticalOptions="End"/>
-
                     </Grid>
 
+                    <!-- Danh sách địa điểm -->
                     <CollectionView ItemsSource="{Binding Locations}"
                                     HeightRequest="200"
                                     SelectionMode="None"
@@ -157,37 +166,54 @@
                                     HorizontalScrollBarVisibility="Never">
 
                         <CollectionView.ItemsLayout>
-                            <LinearItemsLayout Orientation="Horizontal"
-                                               ItemSpacing="15"/>
+                            <LinearItemsLayout Orientation="Horizontal" ItemSpacing="15"/>
                         </CollectionView.ItemsLayout>
 
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <Border WidthRequest="150"
+                                <Border WidthRequest="145"
                                         HeightRequest="190"
                                         Padding="0"
-                                        Stroke="#D6C4B0"
-                                        StrokeThickness="1.5"
+                                        Stroke="#8B6F47"
+                                        StrokeThickness="1"
                                         StrokeShape="RoundRectangle 16">
+                                    <Border.Shadow>
+                                        <Shadow Brush="#3E2723" Offset="0,4" Radius="8" Opacity="0.15"/>
+                                    </Border.Shadow>
 
                                     <Grid>
+                                        <!-- Ảnh địa điểm -->
                                         <Image Source="{Binding ImageUrl}"
                                                Aspect="AspectFill"
                                                HorizontalOptions="Fill"
                                                VerticalOptions="Fill"/>
 
-                                        <BoxView BackgroundColor="#40000000"/>
+                                        <!-- Đổ màu tối chuyển dần dưới chân ảnh (Gradient) giúp Tên địa điểm hiển thị sắc nét -->
+                                        <Border VerticalOptions="End"
+                                                HeightRequest="60"
+                                                StrokeThickness="0">
+                                            <Border.Background>
+                                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                                    <GradientStop Color="Transparent" Offset="0.0" />
+                                                    <GradientStop Color="#CC000000" Offset="1.0" />
+                                                </LinearGradientBrush>
+                                            </Border.Background>
+                                        </Border>
 
+                                        <!-- Tên địa điểm -->
                                         <VerticalStackLayout VerticalOptions="End"
-                                                             Padding="10"
+                                                             Padding="12,8"
                                                              Spacing="2">
-
                                             <Label Text="{Binding Name}"
                                                    FontFamily="OpenSans-Semibold"
-                                                   FontSize="14"
+                                                   FontSize="15"
+                                                   FontAttributes="Bold"
                                                    TextColor="White"
-                                                   LineBreakMode="TailTruncation"/>
-
+                                                   LineBreakMode="TailTruncation">
+                                                <Label.Shadow>
+                                                    <Shadow Brush="Black" Offset="0,1" Radius="3" Opacity="0.5"/>
+                                                </Label.Shadow>
+                                            </Label>
                                         </VerticalStackLayout>
                                     </Grid>
 
@@ -201,40 +227,38 @@
 
 
                 <!-- ================= FEATURED HOMESTAYS ================= -->
-                <VerticalStackLayout Spacing="10">
+                <VerticalStackLayout Spacing="12">
 
                     <Grid ColumnDefinitions="*,Auto">
-
-                        <VerticalStackLayout Spacing="1">
-
+                        <VerticalStackLayout Spacing="2">
                             <Label Text="Homestay nổi bật"
                                    FontFamily="OpenSans-Semibold"
                                    FontSize="18"
+                                   FontAttributes="Bold"
                                    TextColor="#3E2723"/>
 
                             <Label Text="Trải nghiệm nghỉ dưỡng đẳng cấp"
-                                   FontSize="15"
+                                   FontSize="13"
                                    TextColor="#685B4F"/>
-
                         </VerticalStackLayout>
 
                         <Label Grid.Column="1"
-                               Text="Xem thêm"
+                               Text="Xem thêm ›"
                                TextColor="#8B6F47"
-                               FontSize="15"
+                               FontAttributes="Bold"
+                               FontSize="13"
                                VerticalOptions="End"/>
-
                     </Grid>
 
+                    <!-- Danh sách Homestay -->
                     <CollectionView ItemsSource="{Binding Homestays}"
-                                    HeightRequest="335"
+                                    HeightRequest="340"
                                     SelectionMode="Single"
                                     SelectionChanged="Homestay_SelectionChanged"
                                     HorizontalScrollBarVisibility="Never">
 
                         <CollectionView.ItemsLayout>
-                            <LinearItemsLayout Orientation="Horizontal"
-                                               ItemSpacing="16"/>
+                            <LinearItemsLayout Orientation="Horizontal" ItemSpacing="16"/>
                         </CollectionView.ItemsLayout>
 
                         <CollectionView.ItemTemplate>

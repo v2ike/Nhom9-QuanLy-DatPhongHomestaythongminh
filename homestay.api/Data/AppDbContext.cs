@@ -10,7 +10,6 @@ namespace homestay.api.Data
         {
         }
 
-     
         public DbSet<User> Users { get; set; }
 
         public DbSet<Homestay> Homestays { get; set; }
@@ -24,6 +23,12 @@ namespace homestay.api.Data
         public DbSet<Review> Reviews { get; set; }
 
         public DbSet<Favorite> Favorites { get; set; }
+
         public DbSet<Location> locations { get; set; }
+
+        // BỔ SUNG ĐỂ HẾT LỖI CS1061 TRONG CONTROLLER
+        public DbSet<Tiennghis> Tiennghi{ get; set; }
+
+        public DbSet<HomestayImage> HomestayImages { get; set; }
     }
 }

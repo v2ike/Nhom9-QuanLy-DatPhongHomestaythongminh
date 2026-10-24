@@ -1,0 +1,8 @@
+/* Visual Studio Settings File */
+{
+  "debugging.hotReload.applyOnFileSave": true,
+  "debugging.hotReload.hotReloadVerbosityLevel": "minimal",
+  "debugging.xamlHotReload.applyOnSave": true,
+  "debugging.xamlHotReload.previewSelected": true,
+  "debugging.xamlHotReload.inAppSelectionAutoOff": true
+}

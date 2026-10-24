@@ -13,6 +13,15 @@ namespace homestay.api.Controllers
         public string Password { get; set; } = string.Empty;
     }
 
+    // Class DTO nhận dữ liệu đăng ký
+    public class RegisterRequest
+    {
+        public string FullName { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
+        public string Role { get; set; } = "customer";
+    }
+
     [ApiController]
     [Route("api/[controller]")]
     public class AuthController : ControllerBase
@@ -26,7 +35,7 @@ namespace homestay.api.Controllers
         }
 
         [HttpPost("login")]
-        [ProducesResponseType(typeof(User), StatusCodes.Status200OK)] // Khai báo để Swagger UI hiển thị Schema User
+        [ProducesResponseType(typeof(User), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
@@ -47,7 +56,7 @@ namespace homestay.api.Controllers
                 });
             }
 
-            // Kiểm tra cột Password trong Database (hoặc user.PasswordHash nếu trong Model bạn đặt tên là PasswordHash)
+            // Kiểm tra mật khẩu (PasswordHash hoặc Password tùy thuộc tên thuộc tính trong Model User)
             if (user.PasswordHash != request.Password)
             {
                 return Unauthorized(new
@@ -63,6 +72,47 @@ namespace homestay.api.Controllers
                 fullName = user.FullName,
                 email = user.Email,
                 role = user.Role
+            });
+        }
+
+        // BỔ SUNG HÀM ĐĂNG KÝ (REGISTER) TẠI ĐÂY
+        [HttpPost("register")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Register([FromBody] RegisterRequest request)
+        {
+            if (request == null || string.IsNullOrEmpty(request.Email) || string.IsNullOrEmpty(request.Password))
+            {
+                return BadRequest(new { message = "Vui lòng nhập đầy đủ thông tin đăng ký" });
+            }
+
+            // 1. Kiểm tra Email đã tồn tại trong CSDL hay chưa
+            var existingUser = await _context.Users
+                .FirstOrDefaultAsync(x => x.Email == request.Email);
+
+            if (existingUser != null)
+            {
+                return BadRequest(new { message = "Tài khoản/Email này đã tồn tại!" });
+            }
+
+            // 2. Khởi tạo đối tượng User mới
+            var newUser = new User
+            {
+                FullName = request.FullName,
+                Email = request.Email,
+                PasswordHash = request.Password, // Lưu ý: Đổi thành PasswordHash hoặc Password đúng với thuộc tính trong Model User của bạn
+                Role = string.IsNullOrEmpty(request.Role) ? "customer" : request.Role,
+                CreatedAt = DateTime.Now
+            };
+
+            // 3. Lưu xuống SQL Server
+            _context.Users.Add(newUser);
+            await _context.SaveChangesAsync();
+
+            return Ok(new
+            {
+                message = "Đăng ký tài khoản thành công!",
+                userId = newUser.Id
             });
         }
     }
